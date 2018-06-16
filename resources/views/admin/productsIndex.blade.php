@@ -59,7 +59,7 @@
                                                                         <div style="padding: 10px" id="error-message" class="alert-success"> <i class="fa fa-exclamation"></i>  <span class="success-message"></span> </div>
                                                                     </div>
                                                                 </div>
-                                                                <label for="recipient-name" class="control-label">Select Category:</label>
+                                                                <label for="recipient-name" class="control-label">Select Product:</label>
 
                                                                 <div id="draw-sub-categories">
                                                                 </div>
