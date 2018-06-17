@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     //Initialized
-    drawProductsList();
+    drawCategoriesList();
     var category_add_btn = $('#add-categories-button');
     var category_update_btn = $('#update-categories-button');
 
@@ -40,7 +40,7 @@ $(document).ready(function() {
                     //Clear values after inserting to db successfully.
                     product_name.val("");
                     product_keywords.val("");
-                    drawProductsList();
+                    drawCategoriesList();
                 }
             }
         });
@@ -79,7 +79,7 @@ $(document).ready(function() {
         });
     });
 
-    function drawProductsList() {
+    function drawCategoriesList() {
         $.ajax({
             url: '/api/categories',
             type: 'get',
@@ -100,7 +100,7 @@ $(document).ready(function() {
                     for (var i = 0; i < data.length; i++) {
                         var category = data[i];
                         var view = "<li style='width: calc(33% - 30px);display: inline-block;margin: 10px 5px;padding: 5px;border-bottom: 1px solid #ccc'>";
-                        view += category.name + " - " + "<a href='/admin/categories/edit/" + category.id + "'>Edit Category</a>";
+                        view += category.name + " - " + "<a href='/admin/categories/edit/" + category.id + "'>Edit </a>" + " - " + "<a href='/admin/categories/delete/" + category.id + "'>Delete</a>";
                         ul.append(view);
                     }
                 }

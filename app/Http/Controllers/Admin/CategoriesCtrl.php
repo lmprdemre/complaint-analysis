@@ -40,4 +40,12 @@ class CategoriesCtrl extends Controller
             return redirect("/login" );
         }
     }
+
+    public function deleteCat($id)
+    {
+        $cat = (new Categories)->find($id);
+        $cat->delete();
+
+        return redirect()->back();
+    }
 }

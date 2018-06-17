@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Branches;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,5 +18,13 @@ class BranchesCtrl extends Controller
         }else{
             return redirect("/login" );
         }
+    }
+
+    public function delete($id)
+    {
+        $branch = (new Branches())->find($id);
+        $branch->delete();
+
+        return redirect()->back();
     }
 }

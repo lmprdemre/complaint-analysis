@@ -11,7 +11,7 @@ $(document).ready(function() {
     process_error.hide();
     process_success.hide();
 
-    //Add Procuts
+    //Add Products
     product_add_btn.on('click',function (event) {
         var product_name = $('#add-product-name');
 
@@ -71,7 +71,8 @@ $(document).ready(function() {
                         var product = data[i];
 
                         var view = "<li style='width: calc(33% - 30px);display: inline-block;margin: 10px 5px;padding: 5px;border-bottom: 1px solid #ccc'>";
-                        view += product.name + " - " + "<a href='/admin/products/edit/"+product.id+"'>Edit Product</a>";
+                        view += product.name + " - " + "<a href='/admin/products/edit/"+product.id+"'>Edit </a>" + " - " + "<a href='/admin/products/delete/" + product.id + "'>Delete</a>";
+
                         ul.append(view);
                     }
                 }

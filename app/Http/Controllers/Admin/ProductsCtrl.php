@@ -39,6 +39,19 @@ class ProductsCtrl extends Controller
         }
     }
 
+    public function deleteProduct($id)
+    {
+        $product = (new Products)->find($id);
+        $product_model = (new ProductModels)->where('product_id', $id)->get();
+
+        foreach ($product_model as $model){
+            $model->delete();
+        }
+        $product->delete();
+
+        return redirect()->back();
+    }
+
     public function deleteModel($id)
     {
         $model = ProductModels::find($id);

@@ -3,6 +3,8 @@ $(document).ready(function() {
     //Initialized
     drawProductsList();
     var product_add_btn = $('#product-add-button');
+    var product_update_btn = $('#product-update-button');
+
     var model_add_btn = $('#add-model-button');
     var model_modal = $('#addModelModal');
 
@@ -43,6 +45,38 @@ $(document).ready(function() {
                 }
             }
         });
+    });
+
+    //Update Product
+    product_update_btn.on('click',function (event) {
+        var product_name = $('#add-product-name');
+        console.log(id);
+
+        $.ajax({
+            url: '/api/products/edit/' + id,
+            type: 'put',
+            data: {
+                name: product_name.val()
+            },
+            headers: {
+                Authorization: 'Bearer ' + token
+            },
+            dataType: 'json',
+            success: function (data) {
+                if(data.error){
+                    process_error.fadeIn();
+                    $('.error-message').html(data.error.message);
+                    //console.log(data.error.message);
+                    process_error.fadeOut(1000);
+
+                }else{
+                    process_success.fadeIn();
+                    $('.success-message').html("Updated.");
+                    process_success.fadeOut(1000);
+                }
+            }
+        });
+
     });
     function drawProductsList() {
         $.ajax({

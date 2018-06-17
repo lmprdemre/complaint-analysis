@@ -37,15 +37,21 @@ Route::middleware(['CheckTokenWeb'])->group(function (){
     //Categories
     Route::get('/admin/categories', 'Admin\CategoriesCtrl@index');
     Route::get('/admin/categories/edit/{id}', 'Admin\CategoriesCtrl@editIndex');
+    //Delete category.
+    Route::get('/admin/categories/delete/{id}', 'Admin\CategoriesCtrl@deleteCat');
 
     //Products
     Route::get('/admin/products', 'Admin\ProductsCtrl@index');
     Route::get('/admin/products/edit/{id}', 'Admin\ProductsCtrl@editIndex');
+    //Delete product.
+    Route::get('/admin/products/delete/{id}', 'Admin\ProductsCtrl@deleteProduct');
     //Delete model from product.
     Route::get('/admin/products/model/delete/{id}', 'Admin\ProductsCtrl@deleteModel');
 
     //Branch
     Route::get('/admin/branches', 'Admin\BranchesCtrl@index');
+    //Delete branch.
+    Route::get('/admin/branches/delete/{id}', 'Admin\BranchesCtrl@delete');
 
     //Stats
     Route::get('/admin/stats', 'Admin\AnalysisCtrl@statSindex');

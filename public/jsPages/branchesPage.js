@@ -64,8 +64,7 @@ $(document).ready(function() {
                         var branch = data[i];
 
                         var view = "<li style='width: calc(33% - 30px);display: inline-block;margin: 10px 5px;padding: 5px;border-bottom: 1px solid #ccc'>";
-                        view += branch.name + " - " + "<a href='/admin/products/edit/"+branch.id+"'>Edit</a>";
-                        view +=  " - " + "<a href='/admin/products/delete/"+branch.id+"'>Delete</a>";
+                        view += branch.name + " - " + "<a href='/admin/branches/delete/"+branch.id+"'>Delete</a>";
                         ul.append(view);
                     }
                 }

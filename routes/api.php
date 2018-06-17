@@ -26,6 +26,10 @@ Route::middleware(['AllowedUserTypes:admin'])->group(function (){
 
     Route::post('/products', 'ProductCtrl@create');
     Route::get('/products', 'ProductCtrl@readAll');
+    Route::put('/products/edit/{id}', 'ProductCtrl@update');
+
+
+    //Product's Models
     Route::post('/products/models', 'ProductModelCtrl@create');
 
     //Branches Endpoints
